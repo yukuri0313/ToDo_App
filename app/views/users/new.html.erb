@@ -1,0 +1,19 @@
+<h1>新規登録</h1>
+<%= form_tag("/users/create") do %>
+    <label for="name">お名前</label>
+    <br>
+    <input type="text" name="name" id="name" placeholder="山田　太郎">
+    <br>
+    <label for="email">メールアドレス</label>
+    <br>
+    <input type="text" name="email" id="email" placeholder="taro.yamada@example.com">
+    <br>
+    <label for="password">パスワード</label>
+    <br>
+    <input type="password" name="password" id="password">
+    <br>
+    <label for="password_confirmation">パスワード確認用</label>
+    <br>
+    <input type="password" name="password_confirmation" id="password_confirmation">
+    <input type="submit" value="登録">
+<% end %>

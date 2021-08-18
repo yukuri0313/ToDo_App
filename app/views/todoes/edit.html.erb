@@ -1,0 +1,22 @@
+<%= form_for @category, url: "/todoes/#{@category_name.id}/update" do |f| %>
+        <%= f.label "カテゴリー名"%>
+        <%= f.text_field :kind, value: @category_name.kind %>
+    <ul>
+    <% @todoes.each do |todo| %>
+        <%= f.fields_for :todos do |todos_form| %>
+            <li>
+                <%= todos_form.label "タイトル" %>
+                <%= todos_form.text_field :title, value: todo.title %>
+
+                <%= todos_form.label "詳細" %>
+                <%= todos_form.text_field :content, value: todo.content %>
+                
+                <%= todos_form.label "締め切り" %>
+                <%= todos_form.datetime_field :deadline, value: todo.deadline %>
+            </li>
+        <% end %>
+    <% end %>
+    </ul>
+    <%= f.submit "Update Tasks" %>
+<% end %>
+    

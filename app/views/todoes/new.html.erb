@@ -1,0 +1,20 @@
+<%= form_for @category, url: todoes_create_path do |f| %>
+  <%= f.label "カテゴリー名"%>
+  <%= f.text_field :kind %>
+  <ul>
+    <%= f.fields_for :todos do |todos_form| %>
+      <li>
+        <%= todos_form.label "タイトル" %>
+        <%= todos_form.text_field :title %>
+
+        <%= todos_form.label "詳細" %>
+        <%= todos_form.text_field :content %>
+        
+        <%= todos_form.label "締め切り" %>
+        <%= todos_form.datetime_field :deadline %>
+      </li>
+    <% end %>
+  </ul>
+  <%= f.submit "Add Tasks" %>
+<% end %>
+<%= link_to("Edit Tasks", "/categories/index")%>

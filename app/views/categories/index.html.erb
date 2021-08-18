@@ -1,0 +1,8 @@
+<% @categories.each do |category| %>
+<div class="card">
+　<%= category.kind %>
+  <div class="card-footer">
+    <%= link_to "タスク編集", "/todoes/#{category.id}/edit" %>
+  </div>
+</div>
+<% end %>

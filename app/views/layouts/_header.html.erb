@@ -1,0 +1,13 @@
+<header>
+    <div class="nav-bar">
+        <div class="title">ToDoList</div>
+        <div class="navbar-right">
+           <% if @current_user == nil %>
+            <%= link_to "新規登録",  "/users/new" %>
+            <%= link_to "ログイン",  "/login" %>
+           <% else %>
+            <%= link_to "ログアウト",  "/logout" %>
+           <% end %>
+        </div>
+    </div>
+</header>
