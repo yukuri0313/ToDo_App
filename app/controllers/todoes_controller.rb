@@ -16,24 +16,23 @@ class TodoesController < ApplicationController
   end
 
   def edit
-    @category = Category.new
+    @category = Category.find(params[:id])
     @category.todos.build
-    @category_name = Category.find(params[:id])
-    @todoes = Todo.where(category_id: @category_name.id)
+    @todoes = Todo.where(category_id: @category.id)
   end
 
   def update
-    @category = Category.where(params[:id])
+    @category = Category.find(params[:id])
     @category.update(update_category_params)
     redirect_to("/categories/index")
   end
   
   private
     def category_params
-      params.require(:category).permit(:kind, todos_attributes: [:id, :title, :content, :deadline, :_destroy])
+      params.require(:category).permit(:kind, todos_attributes: [:id, :title, :content, :deadline])
     end
 
     def update_category_params
-      params.require(:category).permit(:kind, todos_attributes: [:id, :title, :content, :deadline, :category_id, :_destroy])
+      params.require(:category).permit(:kind, todos_attributes: [:id, :title, :content, :deadline, :_destroy])
     end
 end

@@ -1,6 +1,6 @@
-<%= form_for @category, url: "/todoes/#{@category_name.id}/update" do |f| %>
+<%= form_for @category, url: "/todoes/#{@category.id}/update" do |f| %>
         <%= f.label "カテゴリー名"%>
-        <%= f.text_field :kind, value: @category_name.kind %>
+        <%= f.text_field :kind, value: @category.kind %>
     <ul>
     <% @todoes.each do |todo| %>
         <%= f.fields_for :todos do |todos_form| %>
